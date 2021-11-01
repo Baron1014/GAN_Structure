@@ -1,7 +1,4 @@
-import torch
 from torch import nn
-from torchsummary import summary
-import copy
 
 class Discriminator(nn.Module):
     def __init__(self):
@@ -131,9 +128,3 @@ class Generative(nn.Module):
 
         return x
 
-if __name__=="__main__":
-    model = Discriminator()
-    summary(model, (172, 256, 256))
-
-    gmodel = Generative()
-    summary(gmodel, (172, 256, 256))
