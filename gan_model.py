@@ -114,13 +114,13 @@ class Generative(nn.Module):
         x = self.dense3(x)
 
         b1 = self.block1(x)
-        x1 = self.leakyrelu(b1 + x)
+        x1 = self.leakyrelu(b1 * x)
         b2 = self.block2(x1)
-        x2 = self.leakyrelu(b2 + x1)
+        x2 = self.leakyrelu(b2 * x1)
         b3 = self.block3(x2)
-        x3 = self.leakyrelu(b3 + x2)
+        x3 = self.leakyrelu(b3 * x2)
         b4 = self.block4(x3)
-        x = self.leakyrelu(b4 + x3)
+        x = self.leakyrelu(b4 * x3)
         
         x = self.dense4(x)
         x = self.dense5(x)
